@@ -1,0 +1,178 @@
+
+<!Doctype Html>
+<html>
+    <head>
+        <title>Login Form</title>
+        <link href="panda11.css" rel="stylesheet" >
+    </head>
+    <body>
+       <div class="wrapper"
+           <div class="title"
+              Login
+           </div>
+           <form action="#">
+               <div calass="input-box">
+                   <input type="Email or Phone" placeholder="Email or Phone" required>
+                   </div>
+                   <div class="input-box">
+                       <input type="password" placeholder="password" required>
+                   </div>
+                   <div class="remember-forgot">
+                       <div class="remember">
+                       <input type="checkbox">Remember me
+                                            </div>
+                                            <div class="forogt">
+                                            <a href="#">forogt password?</a>
+                                            </div>
+                                            </div>
+
+                                            <div class="input-box button">
+                                                <input type="submit" value="Login">
+                                            </div>
+                                            <div class="option">
+                                                 or login with social media
+
+                                            <div class="facebook">
+                                            <a href="#">
+                                               <i class='bx bxl-facebook'></i>
+                                               facebook
+                                            </a>
+                                            </div>
+
+                                         <div class="twitter">
+                                         <a href="#">
+                                           <i class='bx bxl-twitter'></i>
+                                           twitter
+                                         </a>
+                                         </div>
+                                         <div class="signup-link">
+                                                Don't have an account? <a href="#">sign up</a>
+                                             </div>
+                                        </form>
+                                       </div>
+                                    </body>
+                                 </html>
+
+/*css document */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: "poppins";
+}
+
+body {
+    height:100vh;
+    display:grid;
+    place-items: ceter;
+    background: #009579;
+    padding: 15px 20px;
+}
+.wrapper{
+    background: #3AB795;
+    padding: 30px 25px;
+    border-radius: 25px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0,.2);
+    background:#fff;
+}
+.wrapper .title{
+    font-size: 34px;
+    font-weight: 600;
+    margin: 0 0 40px 0;
+    text-align: center;
+}
+.wrapper form .input-box {
+    width:100%;
+    height: 55px;
+    margin-bottom: 30px;
+}
+.wrapper form .remember-forgot{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: -8px 0 15px 0;
+}
+.wrapper form .remember{
+    display: flex;
+    font-size: 13px;
+    font-weight: 500;
+    color:#009579;
+}
+.wrapper form .remember input{
+    margin-right: 5px;
+}
+.wrapper form .forgot{
+    font-size: 13px;
+    font-weight:500;
+}
+.wrapper form .input-box input{
+    width:100%;
+    height:100%;
+    border-radius: 5px;
+    outline:onne;
+    border: 2px solid #ccc;
+    padding: 20px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+.wrapper form .input-box input:hover,
+.wrapper form .input-box input:valid{
+    transform: scale(1.05);
+}
+
+.wrapper form .forgot a{
+    text-decoration:none;
+    color: #009579;
+}
+.wrapper form .forgot a:hover{
+    text-decoration: underline;
+}
+.wrapper form .button input[type="submit"]{
+    padding:0;
+    font-size: 18px;
+    font-weight: 500;
+    background: #009579;
+    color:#fff;
+    border: none;
+    transform: none;
+}
+
+form .option{
+    text-align: center ;
+    margin: 30px 0 15px 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+form .option .facebook,
+form .option .twitter{
+    margin: 20px 0;
+    padding: 10px 15px;
+    background: #3b5998;
+    border-radius: 5px;
+    font-weight: 500;
+}
+form .option .facebook a,
+form .option .twitter a{
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form .option .twitter{
+    background: #08a0e9;
+}
+.wrapper form .signnup-link {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 30px;
+}
+.wrapper form .signnup-link a{
+    text-decoration: none;
+    color: #009575;
+}
+.wrapper form .signnup-link a:hover {
+    text-decoration: underline;
+}
