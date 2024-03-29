@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Title</title>
+    <!-- Add any CSS or external stylesheets here -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Your content goes here -->
+    <header>
+        <h1>Welcome to PandaWebsite</h1>
+        <!-- Add navigation links here -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Main content of your page -->
+        <section>
+            <h2>About Us</h2>
+            <p>This is where you can introduce your project, PandaWebsite.</p>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Footer content here -->
+        <p>&copy; 2024 PandaWebsite. All rights reserved.</p>
+    </footer>
+
+    <!-- Add any JavaScript files or scripts here -->
+    <script src="script.js"></script>
+</body>
+</html>
+/* Reset some default styles for better consistency */
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+// JavaScript code for pulling or canceling files
+
+// Function to pull a file
+function pullFile(fileName) {
+    // Add code here to pull the file with the given fileName
+    console.log('Pulling file: ' + fileName);
+    // You can add AJAX requests or other methods to pull the file
+}
+
+// Function to cancel a file
+function cancelFile(fileName) {
+    // Add code here to cancel the file with the given fileName
+    console.log('Canceling file: ' + fileName);
+    // You can add AJAX requests or other methods to cancel the file
+}
+
+// Example usage:
+// Pull a file named "example.txt"
+pullFile('example.txt');
+
+// Cancel a file named "example.pdf"
+cancelFile('example.pdf');
