@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Product List</h1>
+  <div style="display: flex;">
+  <div class="product-list" style=" display:flex;">
+      
+    <div class="product" data-id="1" data-name="Product 1" data-price="10">
+	 <img src="images.jpg" alt="Dior x Jordan 1" width="100px" height="100px"> 
+      <p>Product 1 - $10</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    
+    <div class="product" data-id="2" data-name="Product 2" data-price="20">
+	 <img src="images1.jpg" alt="Dior x Jordan 1" width="100px" height="100px"> 
+      <p>Product 2 - $20</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    
+    <div class="product" data-id="3" data-name="Product 3" data-price="30">
+	 <img src="images2.jpg" alt="Dior x Jordan 1" width="100px" height="100px"> 
+      <p>Product 3 - $30</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+ </div>
+ <div style="display: flex;">
+  <div class="product-list" style=" display:flex;">
+ <div class="product" data-id="4" data-name="Product 4" data-price="40">
+	 <img src="images1.jpg" alt="Dior x Jordan 1" width="100px" height="100px"> 
+      <p>Product 4 - $40</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product" data-id="5" data-name="Product 5" data-price="50">
+	 <img src="images1.jpg" alt="Dior x Jordan 1" width="100px" height="100px"> 
+      <p>Product 5 - $50</p>
+      <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product" data-id="6" data-name="Product 6" data-price="60">
+	 <img src="images1.jpg" alt="Dior x Jordan 1" width="100px" height="100px"> 
+      <p>Product 6 - $60</p>
+      <button class="add-to-cart">Add to Cart</button>
+     </div>
+    </div>
+    </div>
+
+  <h2>Your payment</h2>
+  <div class="cart-items">
+    <ul id="cart"></ul>
+    <p id="total">Total: $0</p>
+  </div>
+
+  <button id="pay">Pay</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
+body {
+  font-family: Arial, sans-serif;
+}
+
+.product-list, .cart-items {
+  margin-bottom: 30px;
+}
+
+.product {
+  margin-bottom: 30px;
+}
+
+.add-to-cart {
+  margin-left: 20px;
+  margin-right: 50PX;
+}
+
+.cart-items ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cart-items li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+button {
+  cursor: pointer;
+}
+
+#pay {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px;
+}
+.prod {
+    margin-right: 50px;
+	}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("9af6d761-44c2-4b51-8f27-70439becb355.jpg");
+  background-color: #cccccc;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  position: absolute;
+  top: 70%;
+  left: 70%;
+  transform: translate(-70%, -70%);
+  color: white;
+       }
+let cart = [];
+
+document.querySelectorAll('.add-to-cart').forEach(button => {
+  button.addEventListener('click', function () {
+    const product = this.closest('.product');
+    const productId = product.getAttribute('data-id');
+    const productName = product.getAttribute('data-name');
+    const productPrice = parseFloat(product.getAttribute('data-price'));
+
+    addItemToCart(productId, productName, productPrice);
+    renderCart();
+  });
+});
+
+function addItemToCart(id, name, price) {
+  const existingItem = cart.find(item => item.id === id);
+  if (existingItem) {
+    existingItem.quantity++;
+  } else {
+    cart.push({ id, name, price, quantity: 1 });
+  }
+}
+
+function updateQuantity(id, quantity) {
+  const item = cart.find(item => item.id === id);
+  if (item) {
+    item.quantity += quantity;
+    if (item.quantity <= 0) {
+      removeItemFromCart(id);
+    }
+  }
+  renderCart();
+}
+
+function removeItemFromCart(id) {
+  cart = cart.filter(item => item.id !== id);
+}
+
+function calculateTotal() {
+  return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+}
+
+function renderCart() {
+  const cartElement = document.getElementById('cart');
+  cartElement.innerHTML = '';
+
+  cart.forEach(item => {
+    const cartItem = document.createElement('li');
+    cartItem.innerHTML = `
+      ${item.name} - $${item.price} x ${item.quantity}
+      <div>
+        <button onclick="updateQuantity('${item.id}', 1)">+</button>
+        <button onclick="updateQuantity('${item.id}', -1)">-</button>
+        <button onclick="removeItemFromCart('${item.id}')">Remove</button>
+      </div>
+    `;
+    cartElement.appendChild(cartItem);
+  });
+
+  document.getElementById('total').textContent = `Total: $${calculateTotal()}`;
+}
+
+document.getElementById('pay').addEventListener('click', function () {
+  alert(`Payment successful! Total: $${calculateTotal()}`);
+  cart = [];
+  renderCart();
+} this this
