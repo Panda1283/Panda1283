@@ -185,4 +185,4 @@ document.getElementById('pay').addEventListener('click', function () {
   alert(`Payment successful! Total: $${calculateTotal()}`);
   cart = [];
   renderCart();
-}
+} 
